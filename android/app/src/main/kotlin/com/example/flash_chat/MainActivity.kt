@@ -1,4 +1,4 @@
-package com.example.drunk_homer_chat
+package dev.martynovalex.drunk_homer_chat
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "319247653361",
+    "project_id": "drunk-homer-chat",
+    "storage_bucket": "drunk-homer-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319247653361:android:75e298bd65b5d2e387cc50",
+        "android_client_info": {
+          "package_name": "dev.martynovalex.drunk_homer_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319247653361-ek7vh06vci9q184km3ujv6etjokbriv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDXNOiK-nGOa41_2bTLhePtjQnH2DYUq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319247653361-ek7vh06vci9q184km3ujv6etjokbriv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
