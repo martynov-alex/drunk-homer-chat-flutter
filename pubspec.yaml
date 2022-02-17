@@ -1,5 +1,5 @@
-name: flash_chat
-description: Flash chat.
+name: drunk_homer_chat
+description: Super chat!
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -24,6 +24,12 @@ flutter:
   uses-material-design: true
 
   assets:
-   - images/
+    - images/
+
+  fonts:
+    - family: RoadRage
+      fonts:
+        - asset: fonts/RoadRage-Regular.ttf
+
 
 

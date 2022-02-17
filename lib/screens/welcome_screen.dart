@@ -1,5 +1,5 @@
-import 'package:flash_chat/screens/login_screen.dart';
-import 'package:flash_chat/screens/registration_screen.dart';
+import 'package:drunk_homer_chat/screens/login_screen.dart';
+import 'package:drunk_homer_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -9,11 +9,45 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation animation;
+
+  @override
+  void initState() {
+    super.initState();
+    // Инициализируем контроллер
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
+    );
+    // Задаем кривую анимации
+    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
+    controller.reverse(from: 1.0);
+    // Слушаем статус анимации, по окончании повторяем в другую сторону
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed) {
+        controller.forward();
+      }
+    });
+    controller.addListener(() {
+      setState(() {});
+      print(animation.value);
+    });
+  }
+
+  @override
+  void dispose() {
+    // Выгружаем контроллер
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFD0EDF2),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -22,15 +56,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  child: Image.asset('images/logo.png'),
-                  height: 60.0,
+                Hero(
+                  tag: 'logo',
+                  child: Container(
+                    child: Image.asset('images/logo.png'),
+                    height: animation.value * 120,
+                  ),
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
+                Expanded(
+                  child: FittedBox(
+                    child: Text(
+                      'Drunk homer\nChat',
+                      style: TextStyle(fontFamily: 'RoadRage'),
+                    ),
                   ),
                 ),
               ],
