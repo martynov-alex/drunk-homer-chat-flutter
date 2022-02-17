@@ -10,11 +10,11 @@ class DrunkHomerChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        textTheme: TextTheme(
-          bodyText2: TextStyle(color: Color(0xFF3E9BAA)),
-        ),
-      ),
+      // theme: ThemeData.dark().copyWith(
+      //   textTheme: TextTheme(
+      //     bodyText2: TextStyle(color: Color(0xFF3E9BAA)),
+      //   ),
+      // ),
       debugShowCheckedModeBanner: false,
       home: WelcomeScreen(),
       initialRoute: WelcomeScreen.id,

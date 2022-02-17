@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:drunk_homer_chat/screens/login_screen.dart';
 import 'package:drunk_homer_chat/screens/registration_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:drunk_homer_chat/components/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const id = 'welcome_screen';
@@ -20,20 +22,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     // Инициализируем контроллер
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 3),
     );
-    // Задаем кривую анимации
-    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
-    controller.reverse(from: 1.0);
-    // Слушаем статус анимации, по окончании повторяем в другую сторону
-    animation.addStatusListener((status) {
-      if (status == AnimationStatus.dismissed) {
-        controller.forward();
-      }
-    });
+    animation = ColorTween(begin: Color(0xFFF0E3B0), end: Color(0xFFD0EDF2))
+        .animate(controller);
+    controller.forward();
     controller.addListener(() {
       setState(() {});
-      print(animation.value);
     });
   }
 
@@ -47,7 +42,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFD0EDF2),
+      backgroundColor: animation.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -60,14 +55,26 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   tag: 'logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: animation.value * 120,
+                    height: 120,
                   ),
                 ),
                 Expanded(
-                  child: FittedBox(
-                    child: Text(
-                      'Drunk homer\nChat',
-                      style: TextStyle(fontFamily: 'RoadRage'),
+                  child: Container(
+                    height: 120,
+                    alignment: Alignment.topLeft,
+                    child: AnimatedTextKit(
+                      isRepeatingAnimation: false,
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          'Drunk homer Chat',
+                          textStyle: const TextStyle(
+                            color: Color(0xFF0E3B41),
+                            fontSize: 60,
+                            fontFamily: 'RoadRage',
+                          ),
+                          speed: Duration(milliseconds: 200),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -76,41 +83,19 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            RoundedButton(
+              title: 'Log in',
+              color: Color(0xFFC3B47A),
+              onPressed: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
+            RoundedButton(
+              title: 'Register',
+              color: Color(0xFF917A29),
+              onPressed: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              },
             ),
           ],
         ),
