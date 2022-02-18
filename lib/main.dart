@@ -3,8 +3,14 @@ import 'package:drunk_homer_chat/screens/welcome_screen.dart';
 import 'package:drunk_homer_chat/screens/login_screen.dart';
 import 'package:drunk_homer_chat/screens/registration_screen.dart';
 import 'package:drunk_homer_chat/screens/chat_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(DrunkHomerChat());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Initialize FlutterFire
+  await Firebase.initializeApp();
+  runApp(DrunkHomerChat());
+}
 
 class DrunkHomerChat extends StatelessWidget {
   @override
