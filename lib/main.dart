@@ -7,7 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Initialize FlutterFire
+  // Инициализируем Firebase
   await Firebase.initializeApp();
   runApp(DrunkHomerChat());
 }
@@ -16,11 +16,6 @@ class DrunkHomerChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData.dark().copyWith(
-      //   textTheme: TextTheme(
-      //     bodyText2: TextStyle(color: Color(0xFF3E9BAA)),
-      //   ),
-      // ),
       debugShowCheckedModeBanner: false,
       home: WelcomeScreen(),
       initialRoute: WelcomeScreen.id,
