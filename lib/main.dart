@@ -28,3 +28,8 @@ class DrunkHomerChat extends StatelessWidget {
     );
   }
 }
+
+
+// TODO: Перенос текста в строке ввода
+// TODO: Скрытие текста в графе с паролем
+// TODO: 

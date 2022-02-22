@@ -81,6 +81,10 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: TextField(
                       // Актвируем контроллер по этому полю
                       controller: messageTextController,
+                      minLines: 1,
+                      maxLines: 5,
+                      cursorColor: Color(0xFF3E9BAA),
+                      textCapitalization: TextCapitalization.sentences,
                       onChanged: (value) {
                         messageText = value;
                       },
