@@ -10,7 +10,4 @@ The app was made as a part of [Flutter Development Bootcamp with Dart](https://g
 ![Screenshot 4](https://raw.githubusercontent.com/martynov-alex/drunk-homer-chat-flutter/main/blob/Screenshot_4.png)
 ![Screenshot 5](https://raw.githubusercontent.com/martynov-alex/drunk-homer-chat-flutter/main/blob/Screenshot_5.png)
 ![Screenshot 6](https://raw.githubusercontent.com/martynov-alex/drunk-homer-chat-flutter/main/blob/Screenshot_6.png)
-![Screenshot 7](https://raw.githubusercontent.com/martynov-alex/drunk-homer-chat-flutter/main/blob/Screenshot_7.png)
-![Screenshot 8](https://raw.githubusercontent.com/martynov-alex/drunk-homer-chat-flutter/main/blob/Screenshot_8.png)
-
 
